@@ -1,3 +1,4 @@
+  
 # ASP.NET Core
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
@@ -10,8 +11,36 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '**\*.sln'
+    vsVersion: '16.0'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactstagingdirectory)\\"'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+
+
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: BeanstalkDeployApplication@1
+  inputs:
+    awsCredentials: 'craigwAWS'
+    regionName: 'eu-west-1'
+    applicationName: 'WebAPIFitnessTracker'
+    environmentName: 'WebAPIFitnessTracker-dev'
+    applicationType: 'aspnet'
+    webDeploymentArchive: '$(build.artifactstagingdirectory)\WebAPIFitnessTracker.zip'
