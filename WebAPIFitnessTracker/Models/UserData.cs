@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAPIFitnessTracker.Data;
 
 namespace WebAPIFitnessTracker.Models
 {
@@ -89,33 +90,33 @@ namespace WebAPIFitnessTracker.Models
             }
         }
 
-        ////user calorie stats
-        ////total calroies burned working out so far this month
-        //public int MonthlyCaloriesBurned
-        //{
-        //    get
-        //    {
-        //        using (var db = new FitnessTrackerWebAPIContext())
-        //        {
-        //            var caloriesMonthly = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).Sum(w => w.CaloriesBurned);
-        //            return caloriesMonthly;
-        //        }
-        //    }
-        //}
+        //user calorie stats
+        //total calroies burned working out so far this month
+        public int MonthlyCaloriesBurned
+        {
+            get
+            {
+                using (var db = new WebAPIFitnessTrackerContext())
+                {
+                    var caloriesMonthly = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).Sum(w => w.CaloriesBurned);
+                    return caloriesMonthly;
+                }
+            }
+        }
 
-        ////calories burned working out over the last 30 days
-        //public int CaloriesBurnedLast30Days
-        //{
-        //    get
-        //    {
-        //        using (var db = new FitnessTrackerWebAPIContext())
-        //        {
-        //            int calsLast30Days = 0;
-        //            calsLast30Days = db.Workouts.Where(w => w.Date >= DateTime.Now.AddDays(-30) && w.UserID == ID).Sum(w => w.CaloriesBurned);
-        //            return calsLast30Days;
-        //        }
-        //    }
-        //}
+        //calories burned working out over the last 30 days
+        public int CaloriesBurnedLast30Days
+        {
+            get
+            {
+                using (var db = new WebAPIFitnessTrackerContext())
+                {
+                    int calsLast30Days = 0;
+                    calsLast30Days = db.Workouts.Where(w => w.Date >= DateTime.Now.AddDays(-30) && w.UserID == ID).Sum(w => w.CaloriesBurned);
+                    return calsLast30Days;
+                }
+            }
+        }
 
 
 

@@ -15,6 +15,10 @@ namespace WebAPIFitnessTracker.Data
         {
         }
 
+        public WebAPIFitnessTrackerContext()
+        {
+        }
+
         public DbSet<WebAPIFitnessTracker.Models.UserData> Users { get; set; }
 
         public DbSet<WebAPIFitnessTracker.Models.WorkoutData> Workouts { get; set; }
