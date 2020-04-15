@@ -8853,11 +8853,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jayjo\\source\\repos\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj",
+      "projectUniqueName": "C:\\Users\\jayjo\\ead\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj",
       "projectName": "WebAPIFitnessTracker",
-      "projectPath": "C:\\Users\\jayjo\\source\\repos\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj",
+      "projectPath": "C:\\Users\\jayjo\\ead\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj",
       "packagesPath": "C:\\Users\\jayjo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jayjo\\source\\repos\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\obj\\",
+      "outputPath": "C:\\Users\\jayjo\\ead\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
