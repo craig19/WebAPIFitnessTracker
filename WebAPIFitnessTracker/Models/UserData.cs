@@ -113,6 +113,7 @@ namespace WebAPIFitnessTracker.Models
                 {
                     int calsLast7Days = 0;
                     calsLast7Days = db.Workouts.Where(w => w.Date >= DateTime.Now.AddDays(-7) && w.UserID == ID).Sum(w => w.CaloriesBurned);
+                    return calsLast7Days;
                 }
             }
         }
