@@ -117,6 +117,19 @@ namespace WebAPIFitnessTracker.Models
                 }
             }
         }
+        //Total Workout Time for the month
+        public double WorkoutTimeMonth
+        {
+            get
+            {
+                using (var db = new WebAPIFitnessTrackerContext())
+                {
+                    var totalWorkoutTimeMonth = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).Sum(w => w.WorkoutDuration);
+                    return totalWorkoutTimeMonth;
+                }
+
+            }
+        }
         //calories burned working out over the last 30 days
         public int CaloriesBurnedLast30Days
         {
