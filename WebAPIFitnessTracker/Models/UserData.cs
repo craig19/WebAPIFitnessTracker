@@ -162,7 +162,7 @@ namespace WebAPIFitnessTracker.Models
         {
             get
             {
-                using (var db = new FitnessTrackerWebAPIContext())
+                using (var db = new WebAPIFitnessTrackerContext())
                 {
                     var longestWorkoutObj = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).OrderByDescending(w => w.WorkoutDuration).FirstOrDefault();
                     if (longestWorkoutObj != null)
