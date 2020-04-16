@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jayjo\\ead\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj": {}
+    "C:\\Users\\Jamie\\Documents\\GitHub\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jayjo\\ead\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj": {
+    "C:\\Users\\Jamie\\Documents\\GitHub\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jayjo\\ead\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj",
+        "projectUniqueName": "C:\\Users\\Jamie\\Documents\\GitHub\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj",
         "projectName": "WebAPIFitnessTracker",
-        "projectPath": "C:\\Users\\jayjo\\ead\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj",
-        "packagesPath": "C:\\Users\\jayjo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jayjo\\ead\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\obj\\",
+        "projectPath": "C:\\Users\\Jamie\\Documents\\GitHub\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\WebAPIFitnessTracker.csproj",
+        "packagesPath": "C:\\Users\\Jamie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jamie\\Documents\\GitHub\\WebAPIFitnessTracker\\WebAPIFitnessTracker\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jayjo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Jamie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -87,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

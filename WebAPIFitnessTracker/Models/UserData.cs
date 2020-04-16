@@ -104,6 +104,18 @@ namespace WebAPIFitnessTracker.Models
             }
         }
 
+        //Calories being burned from work outs over the last 7 days
+        public int CaloriesBurnedLast7Days
+        {
+            get
+            {
+                using (var db = new WebAPIFitnessTrackerContext())
+                {
+                    int calsLast7Days = 0;
+                    calsLast7Days = db.Workouts.Where(w => w.Date >= DateTime.Now.AddDays(-7) && w.UserID == ID).Sum(w => w.CaloriesBurned);
+                }
+            }
+        }
         //calories burned working out over the last 30 days
         public int CaloriesBurnedLast30Days
         {
