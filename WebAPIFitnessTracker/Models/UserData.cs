@@ -117,7 +117,7 @@ namespace WebAPIFitnessTracker.Models
                 }
             }
         }
-        //Total Workout Time for the month
+        //Total Workout Time for the month so far
         public double WorkoutTimeMonth
         {
             get
@@ -130,6 +130,51 @@ namespace WebAPIFitnessTracker.Models
 
             }
         }
+
+        //Return Workout time for total 30 days
+        public double WorkoutTime30Days
+        {
+            get
+            {
+                using (var db = new WebAPIFitnessTrackerContext())
+                {
+                    var workoutTimeLast30Days = db.Workouts.Where(w => w.Date >= DateTime.Now.AddDays(-30) && w.UserID == ID).Sum(w => w.WorkoutDuration);
+                    return workoutTimeLast30Days;
+                }
+            }
+        }
+
+        //Return workout time for last 7 days
+        public double WorkoutTime7Days
+        {
+            get
+            {
+                using (var db = new WebAPIFitnessTrackerContext())
+                {
+                    var workoutTimeLast7Days = db.Workouts.Where(w => w.Date >= DateTime.Now.AddDays(-7) && w.UserID == ID).Sum(w => w.WorkoutDuration);
+                    return workoutTimeLast7Days;
+                }
+            }
+
+        }
+        // Return longest workout for the month
+        public double LongestWorkout
+        {
+            get
+            {
+                using (var db = new FitnessTrackerWebAPIContext())
+                {
+                    var longestWorkoutObj = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).OrderByDescending(w => w.WorkoutDuration).FirstOrDefault();
+                    if (longestWorkoutObj != null)
+                    {
+                        double longestWorkout = longestWorkoutObj.WorkoutDuration;
+                        return longestWorkout;
+                    }
+                    else return 0;
+                }
+            }
+        }
+        /// </summary>
         //calories burned working out over the last 30 days
         public int CaloriesBurnedLast30Days
         {
