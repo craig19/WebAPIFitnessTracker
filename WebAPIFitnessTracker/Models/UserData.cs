@@ -174,7 +174,7 @@ namespace WebAPIFitnessTracker.Models
                 }
             }
         }
-        /// </summary>
+
         //calories burned working out over the last 30 days
         public int CaloriesBurnedLast30Days
         {

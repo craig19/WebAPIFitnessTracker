@@ -32,7 +32,9 @@ namespace WebAPIFitnessTracker.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<UserData>> GetUserData(int id)
         {
-            var userData = await _context.Users.FindAsync(id);
+           // var userData = await _context.Users.FindAsync(id);
+
+            var userData = await _context.Users.Include(r => r.Workouts).FirstOrDefaultAsync(r => r.ID == id);
 
             if (userData == null)
             {
