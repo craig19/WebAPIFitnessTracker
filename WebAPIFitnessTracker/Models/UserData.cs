@@ -83,13 +83,9 @@ namespace WebAPIFitnessTracker.Models
                 {
                     return "Moderately Obese";
                 }
-                else if (userBMI > ModeratelyObeseUpper)
-                {
-                    return "Severely Obese";
-                }
                 else
                 {
-                    return "Not determined";
+                    return "Severely Obese";
                 }
             }
         }
