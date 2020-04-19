@@ -22,6 +22,14 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'eadSonar'
+    organization: 'ead'
+    scannerMode: 'MSBuild'
+    projectKey: 'ead2'
+    projectName: 'ead2'
+
 - task: VSBuild@1
   inputs:
     solution: '**\*.sln'
@@ -29,6 +37,12 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactstagingdirectory)\\"'
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
+
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: VSTest@2
   inputs:
