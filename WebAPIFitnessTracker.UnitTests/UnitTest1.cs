@@ -17,11 +17,27 @@ namespace WebAPIFitnessTracker.UnitTests
         }
 
         [TestMethod]
-        public void TestBMI()
+        public void TestBMIvalue()
         {
-            double testBMI = 27.75510204081633;
+            double testBMI = 27.76;
             UserData user1 = new UserData() { FirstName = "Craig", SecondName = "Whelan", Age = 29, HeightCM = 175, WeightKG = 85 };
             Assert.AreEqual(user1.BMIValue, testBMI);
+        }
+
+        [TestMethod]
+        public void TestBMIcategoryOverweight()
+        {
+            string testBMI = "Overweight";
+            UserData user1 = new UserData() { FirstName = "Craig", SecondName = "Whelan", Age = 29, HeightCM = 175, WeightKG = 85 };
+            Assert.AreEqual(user1.BMICategory, testBMI);
+        }
+
+        [TestMethod]
+        public void TestBMIcategorySeverelyUnderweight()
+        {
+            string testBMI = "Severely Underweight";
+            UserData user1 = new UserData() { FirstName = "Craig", SecondName = "Whelan", Age = 29, HeightCM = 175, WeightKG = 45 };
+            Assert.AreEqual(user1.BMICategory, testBMI);
         }
 
         [TestMethod]

@@ -96,48 +96,8 @@ namespace WebAPIFitnessTracker.Models
             }
         }
 
-        //user calorie stats
-        //total calroies burned working out so far this month
-        //public int MonthlyCaloriesBurned
-        //{
-        //    get
-        //    {
-        //        using (var db = new WebAPIFitnessTrackerContext())
-        //        {
-        //            var caloriesMonthly = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).Sum(w => w.CaloriesBurned);
-        //            return caloriesMonthly;
-        //        }
-        //    }
-        //}
 
-        //Calories being burned from work outs over the last 7 days
-        public int CaloriesBurnedLast7Days
-        {
-            get
-            {
-                using (var db = new WebAPIFitnessTrackerContext())
-                {
-                    int calsLast7Days = 0;
-                    calsLast7Days = db.Workouts.Where(w => w.Date >= DateTime.Now.AddDays(-7) && w.UserID == ID).Sum(w => w.CaloriesBurned);
-                    return calsLast7Days;
-                }
-            }
-        }
-        //Total Workout Time for the month so far
-        //public double WorkoutTimeMonth
-        //{
-        //    get
-        //    {
-        //        using (var db = new WebAPIFitnessTrackerContext())
-        //        {
-        //            var totalWorkoutTimeMonth = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).Sum(w => w.WorkoutDuration);
-        //            return totalWorkoutTimeMonth;
-        //        }
-
-        //    }
-        //}
-
-        //Return Workout time for total 30 days
+        // return workout time for last 30 days
         public double WorkoutTime30Days
         {
             get
@@ -150,7 +110,7 @@ namespace WebAPIFitnessTracker.Models
             }
         }
 
-        //Return workout time for last 7 days
+        // return workout time for last 7 days
         public double WorkoutTime7Days
         {
             get
@@ -163,7 +123,7 @@ namespace WebAPIFitnessTracker.Models
             }
 
         }
-        // Return longest workout for the month
+        // Return longest workout of the month
         public double LongestWorkout
         {
             get
@@ -191,6 +151,20 @@ namespace WebAPIFitnessTracker.Models
                     int calsLast30Days = 0;
                     calsLast30Days = db.Workouts.Where(w => w.Date >= DateTime.Now.AddDays(-30) && w.UserID == ID).Sum(w => w.CaloriesBurned);
                     return calsLast30Days;
+                }
+            }
+        }
+
+        //Calories being burned from work outs over the last 7 days
+        public int CaloriesBurnedLast7Days
+        {
+            get
+            {
+                using (var db = new WebAPIFitnessTrackerContext())
+                {
+                    int calsLast7Days = 0;
+                    calsLast7Days = db.Workouts.Where(w => w.Date >= DateTime.Now.AddDays(-7) && w.UserID == ID).Sum(w => w.CaloriesBurned);
+                    return calsLast7Days;
                 }
             }
         }
