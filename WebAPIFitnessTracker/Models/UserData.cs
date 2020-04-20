@@ -35,12 +35,15 @@ namespace WebAPIFitnessTracker.Models
         [Range(5, 220, ErrorMessage = "Height must be between 5 and 220 CM")]
         public int HeightCM { get; set; }
 
+
         //returns a value for user BMR
         public double BMR
         {
             get
             {
                 double bmr = (10 * WeightKG) + (6.25 * HeightCM) - (5 * Age) - 161;
+                //2 decimal places
+                bmr = Math.Round(bmr, 2);
                 return bmr;
             }
         }
@@ -52,9 +55,12 @@ namespace WebAPIFitnessTracker.Models
             get
             {
                 double bmi = (WeightKG / HeightCM / HeightCM) * 10000;
+                //2 decimal places
+                bmi = Math.Round(bmi, 2);
                 return bmi;
             }
         }
+
 
 
         public string BMICategory
@@ -92,17 +98,17 @@ namespace WebAPIFitnessTracker.Models
 
         //user calorie stats
         //total calroies burned working out so far this month
-        public int MonthlyCaloriesBurned
-        {
-            get
-            {
-                using (var db = new WebAPIFitnessTrackerContext())
-                {
-                    var caloriesMonthly = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).Sum(w => w.CaloriesBurned);
-                    return caloriesMonthly;
-                }
-            }
-        }
+        //public int MonthlyCaloriesBurned
+        //{
+        //    get
+        //    {
+        //        using (var db = new WebAPIFitnessTrackerContext())
+        //        {
+        //            var caloriesMonthly = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).Sum(w => w.CaloriesBurned);
+        //            return caloriesMonthly;
+        //        }
+        //    }
+        //}
 
         //Calories being burned from work outs over the last 7 days
         public int CaloriesBurnedLast7Days
@@ -118,18 +124,18 @@ namespace WebAPIFitnessTracker.Models
             }
         }
         //Total Workout Time for the month so far
-        public double WorkoutTimeMonth
-        {
-            get
-            {
-                using (var db = new WebAPIFitnessTrackerContext())
-                {
-                    var totalWorkoutTimeMonth = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).Sum(w => w.WorkoutDuration);
-                    return totalWorkoutTimeMonth;
-                }
+        //public double WorkoutTimeMonth
+        //{
+        //    get
+        //    {
+        //        using (var db = new WebAPIFitnessTrackerContext())
+        //        {
+        //            var totalWorkoutTimeMonth = db.Workouts.Where(w => w.Date.Month == DateTime.Today.Month && w.UserID == ID).Sum(w => w.WorkoutDuration);
+        //            return totalWorkoutTimeMonth;
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         //Return Workout time for total 30 days
         public double WorkoutTime30Days
