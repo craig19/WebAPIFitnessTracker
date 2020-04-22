@@ -9,14 +9,9 @@ namespace WebAPIFitnessTracker.Models
 {
     public class UserData
     {
-        //Upper bounds for BMI categories
-        const double SeverelyUnderweightUpper = 15.9;
-        const double UnderweightUpper = 18.4;
-        const double NormalWeightUpper = 24.9;
-        const double OverweightUpper = 29.9;
-        const double ModeratelyObeseUpper = 34.9;
-
         public int ID { get; set; }
+
+        //User data to be set in User Profile
         [Required(ErrorMessage = "First Name is required")]
         [Display(Name = "First Name")]
         [StringLength(20, ErrorMessage = "First name cannot exceed 20 characters. ")]
@@ -36,6 +31,8 @@ namespace WebAPIFitnessTracker.Models
         public int HeightCM { get; set; }
 
 
+        //various user stats, including BMR, BMI, workout length & calorie stats
+
         //returns a value for user BMR
         public double BMR
         {
@@ -47,6 +44,14 @@ namespace WebAPIFitnessTracker.Models
                 return bmr;
             }
         }
+
+
+        //Upper bounds for BMI categories
+        private const double SeverelyUnderweightUpper = 15.9;
+        private const double UnderweightUpper = 18.4;
+        private const double NormalWeightUpper = 24.9;
+        private const double OverweightUpper = 29.9;
+        private const double ModeratelyObeseUpper = 34.9;
 
         //show current saved stats, allow to change to up-do-date stats - check BMR/BMI 
         //return a value for user BMI
@@ -60,8 +65,6 @@ namespace WebAPIFitnessTracker.Models
                 return bmi;
             }
         }
-
-
 
         public string BMICategory
         {
@@ -175,7 +178,8 @@ namespace WebAPIFitnessTracker.Models
         public List<WorkoutData> Workouts { get; set; }
 
     }
-    //holds all workout information such as start/end times, workout details, calories burned etc.
+
+    //holds all workout information such as workout duration, workout details, calories burned etc.
     public class WorkoutData
     {
         public int ID { get; set; }
