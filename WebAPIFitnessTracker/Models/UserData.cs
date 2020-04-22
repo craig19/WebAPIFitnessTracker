@@ -68,7 +68,6 @@ namespace WebAPIFitnessTracker.Models
 
         public string BMICategory
         {
-
             get
             {
                 double userBMI = this.BMIValue;
